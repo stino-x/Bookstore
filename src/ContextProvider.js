@@ -1,20 +1,20 @@
 // SharedStateContext.js
 import { createContext, useState } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 
 const SharedStateContext = createContext();
 
 export function ContextProvider({ children }) {
   const [BookArray, setBookArray] = useState([]);
-  function Bookconstructor(property1, property2) {
-    this.bookname = property1;
-    this.author = property2;
+  // console.log(BookArray);
+  function createBook(property1, property2) {
+    return { bookname: property1, author: property2 };
   }
-  
 
   return (
     <SharedStateContext.Provider value={{
-      BookArray, setBookArray, Bookconstructor
+      BookArray, setBookArray, createBook,
     }}
     >
       {children}

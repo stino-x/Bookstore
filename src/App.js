@@ -3,16 +3,17 @@ import {
   Route, RouterProvider, createBrowserRouter, createRoutesFromElements,
 } from 'react-router-dom';
 import BookLayout from './components/BookLayout';
-import Form from './components/Form';
-import Books from './components/Books';
 import { ContextProvider } from './ContextProvider';
+import Form from './components/Form/Form';
+import Books from './components/Book-List/Books';
+// import Books from './components/Books-List/Books.js';
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<BookLayout />}>
-        <Route index element={<Form />} />
-        <Route path="quote" element={<Books />} />
+        <Route index element={<Books />} />
+        <Route path="form" element={<Form />} />
       </Route>,
     ),
   );
